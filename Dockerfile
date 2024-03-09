@@ -1,4 +1,4 @@
-FROM python:latest
+FROM openjdk:17-jdk
 
 # Définir le répertoire de travail dans le conteneur
 WORKDIR /app
@@ -7,10 +7,10 @@ WORKDIR /app
 RUN pip install --no-cache-dir Flask
 
 # Copier le reste des fichiers de l'application dans le conteneur
-COPY . .
+COPY target/activitesdoctorants-0.0.1-SNAPSHOT.jar /app/gestiondoctorant.jar
 
 # Exposer le port sur lequel Flask s'exécute
-EXPOSE 5000
+EXPOSE 8000
 
 # Commande pour exécuter l'application Flask
-CMD ["python", "test.py"]
+CMD ["java", "-jar", "gestiondoctorant.jar"]
