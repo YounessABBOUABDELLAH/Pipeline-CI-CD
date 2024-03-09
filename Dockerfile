@@ -4,7 +4,6 @@ FROM openjdk:17-jdk
 WORKDIR /app
 
 # Installer les dépendances Python nécessaires
-RUN pip install --no-cache-dir Flask
 
 # Copier le reste des fichiers de l'application dans le conteneur
 COPY target/activitesdoctorants-0.0.1-SNAPSHOT.jar /app/gestiondoctorant.jar
